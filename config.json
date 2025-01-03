@@ -1,0 +1,20 @@
+{
+    "log": {
+        "loglevel": "info"
+    },
+    "routing": {
+        "rules": [],
+        "domainStrategy": "AsIs"
+    },
+    "inbounds": [],
+    "outbounds": [
+        {
+            "protocol": "freedom",
+            "tag": "direct"
+        },
+        {
+            "protocol": "blackhole",
+            "tag": "block"
+        }
+    ]
+}
