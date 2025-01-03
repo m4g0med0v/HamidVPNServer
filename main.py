@@ -1,4 +1,5 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException, Request
+from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.middleware.cors import CORSMiddleware
 
 from config import settings
@@ -22,6 +23,20 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+class IPFilterMiddleware(BaseHTTPMiddleware):
+    def dispatch(self, request: Request, call_next):
+        client_ip = request.client.host
+        if client_ip != settings.main_server_ip:
+            raise HTTPException(
+                status_code=403,
+                detail="Access denied: unauthorized IP address.",
+            )
+        return call_next(request)
+
+
+app.add_middleware(IPFilterMiddleware)
 
 
 @app.get("/links")
