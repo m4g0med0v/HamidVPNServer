@@ -21,3 +21,10 @@
 # cd HamidVPNServer
 # source .venv/bin/activate
 # uvicorn main:app --port 8000 --host 0.0.0.0 --reload
+
+
+# Настройка сервера
+# cp serverapi.service /etc/systemd/system/
+# sudo systemctl daemon-reload
+# sudo systemctl enable serverapi.service
+# sudo systemctl start serverapi.service
