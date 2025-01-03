@@ -91,6 +91,7 @@ class VlessConfig:
         self.sniffing = VlessSniffing(
             enabled=True, destOverride=["http", "tls"]
         )
+        self.link = f"vless://{self.settings.clients[0].id}@{config.settings.server_ip}:{self.port}?security={self.streamSettings.security}&encryption=none&pbk={self.streamSettings.realitySettings.publicKey}&headerType=none&fp=chrome&type={self.streamSettings.network}&flow={self.settings.clients[0].flow}&sni={self.streamSettings.realitySettings.serverNames[0]}&sid={self.streamSettings.realitySettings.shortIds}#HamidVPN [{self.settings.clients[0].mes_id}] [{self.port}]"
 
     def to_json(self) -> Dict[str, Any]:
         return {
@@ -128,7 +129,3 @@ class VlessConfig:
                 "destOverride": self.sniffing.destOverride,
             },
         }
-
-    @property
-    def link(self):
-        return f"vless://{self.settings.clients[0].id}@{config.settings.server_ip}:{self.port}?security={self.streamSettings.security}&encryption=none&pbk={self.streamSettings.realitySettings.publicKey}&headerType=none&fp=chrome&type={self.streamSettings.network}&flow={self.settings.clients[0].flow}&sni={self.streamSettings.realitySettings.serverNames[0]}&sid={self.streamSettings.realitySettings.shortIds}#HamidVPN [{self.settings.clients[0].mes_id}] [{self.port}]"
