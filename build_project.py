@@ -21,9 +21,3 @@
 # cd HamidVPNServer
 # source .venv/bin/activate
 # uvicorn main:app --port 8000 --host 0.0.0.0 --reload
-
-
-# Генерация ключей JWT
-
-# openssl genras -out jwt-private.pem 2048
-# openssl rsa -in jwt-private.pem -outform PEM -pubout -out jwt-public.pem
