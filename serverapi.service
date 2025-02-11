@@ -1,0 +1,13 @@
+[Unit]
+Description=ServerAPI
+After=network.target
+
+[Service]
+User=root
+Group=root
+WorkingDirectory=/root/HamidVPNServer
+ExecStart=/root/HamidVPNServer/.venv/bin/python /root/HamidVPNServer/run.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,6 @@
+SERVER_IP= #curl -s ifconfig.me 
+ADMIN_NAME= #openssl rand -hex 12
+ADMIN_PASSWORD= #openssl rand -base64 32
+JWT_SECRET_KEY= #openssl rand -base64 32
+PRIVATE_KEY= #xray x25519
+PUBLIC_KEY= #xray x25519
