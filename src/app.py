@@ -13,8 +13,8 @@ app = FastAPI()
 xray = Xray(
     server_ip=settings.server_ip,
     pbk_key=settings.xray.public_key,
-    config_path="config.json",
-    freeze_path="freeze.json",
+    # config_path="config.json",
+    # freeze_path="freeze.json",
 )
 
 

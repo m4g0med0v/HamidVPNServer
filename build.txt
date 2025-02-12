@@ -1,6 +1,7 @@
 # Создание сервера
 ssh -L 8000:localhost:8000 root@<ip>
 apt update & apt upgrade
+apt install micro git python3-venv
 git clone https://github.com/m4g0med0v/HamidVPNServer.git
 cd HamidVPNServer
 python3 -m venv .venv
